@@ -4,117 +4,117 @@ import "encoding/xml"
 
 // Tmx document - The <tmx> element encloses all the other elements of the document.
 type Tmx struct {
-	XMLName xml.Name `xml:"tmx"`
-	Text    string   `xml:",chardata"`
-	Version string   `xml:"version,attr"`
-	Header  Header   `xml:"header"`
-	Body    Body     `xml:"body"`
+	XMLName xml.Name `xml:"tmx,omitempty"`
+	Text    string   `xml:",chardata,omitempty"`
+	Version string   `xml:"version,attr,omitempty"`
+	Header  Header   `xml:"header,omitempty"`
+	Body    Body     `xml:"body,omitempty"`
 }
 
 // Header represents the <header> element. It contains information pertaining to the whole document.
 type Header struct {
-	Text                string `xml:",chardata"`
-	Creationtool        string `xml:"creationtool,attr"`
-	Creationtoolversion string `xml:"creationtoolversion,attr"`
-	Datatype            string `xml:"datatype,attr"`
-	Segtype             string `xml:"segtype,attr"`
-	Adminlang           string `xml:"adminlang,attr"`
-	Srclang             string `xml:"srclang,attr"`
-	OTmf                string `xml:"o-tmf,attr"`
-	Creationdate        string `xml:"creationdate,attr"`
-	Creationid          string `xml:"creationid,attr"`
-	Changedate          string `xml:"changedate,attr"`
-	Changeid            string `xml:"changeid,attr"`
-	OEncoding           string `xml:"o-encoding,attr"`
-	Note                []Note `xml:"note"`
-	Prop                []Prop `xml:"prop"`
-	Ude                 []Ude  `xml:"ude"`
+	Text                string `xml:",chardata,omitempty"`
+	Creationtool        string `xml:"creationtool,attr,omitempty"`
+	Creationtoolversion string `xml:"creationtoolversion,attr,omitempty"`
+	Datatype            string `xml:"datatype,attr,omitempty"`
+	Segtype             string `xml:"segtype,attr,omitempty"`
+	Adminlang           string `xml:"adminlang,attr,omitempty"`
+	Srclang             string `xml:"srclang,attr,omitempty"`
+	OTmf                string `xml:"o-tmf,attr,omitempty"`
+	Creationdate        string `xml:"creationdate,attr,omitempty"`
+	Creationid          string `xml:"creationid,attr,omitempty"`
+	Changedate          string `xml:"changedate,attr,omitempty"`
+	Changeid            string `xml:"changeid,attr,omitempty"`
+	OEncoding           string `xml:"o-encoding,attr,omitempty"`
+	Note                []Note `xml:"note,omitempty"`
+	Prop                []Prop `xml:"prop,omitempty"`
+	Ude                 []Ude  `xml:"ude,omitempty"`
 }
 
 // Ude represents User-Defined Encoding - The <ude> element is used to specify a set of user-defined characters and/or, optionally their mapping from Unicode to the user-defined encoding.
 type Ude struct {
-	Text string `xml:",chardata"`
-	Name string `xml:"name,attr"`
-	Base string `xml:"base,attr"`
-	Map  []Map  `xml:"map"`
+	Text string `xml:",chardata,omitempty"`
+	Name string `xml:"name,attr,omitempty"`
+	Base string `xml:"base,attr,omitempty"`
+	Map  []Map  `xml:"map,omitempty"`
 }
 
 // Map represents the <map/> element. It is used to specify a user-defined character and some of its properties.
 type Map struct {
-	Text    string `xml:",chardata"`
-	Unicode string `xml:"unicode,attr"`
-	Code    string `xml:"code,attr"`
-	Ent     string `xml:"ent,attr"`
-	Subst   string `xml:"subst,attr"`
+	Text    string `xml:",chardata,omitempty"`
+	Unicode string `xml:"unicode,attr,omitempty"`
+	Code    string `xml:"code,attr,omitempty"`
+	Ent     string `xml:"ent,attr,omitempty"`
+	Subst   string `xml:"subst,attr,omitempty"`
 }
 
 // Body represents the <body> element. It encloses the main data, the set of <tu> elements that are comprised within the file.
 type Body struct {
-	Text string `xml:",chardata"`
-	Tu   []Tu   `xml:"tu"`
+	Text string `xml:",chardata,omitempty"`
+	Tu   []Tu   `xml:"tu,omitempty"`
 }
 
 // Tuv represents a Translation Unit Variant - The <tuv> element specifies text in a given language.
 type Tuv struct {
-	Text                string `xml:",chardata"`
-	Lang                string `xml:"lang,attr"`
-	Creationdate        string `xml:"creationdate,attr"`
-	Creationid          string `xml:"creationid,attr"`
-	Changedate          string `xml:"changedate,attr"`
-	Changeid            string `xml:"changeid,attr"`
+	Text                string `xml:",chardata,omitempty"`
+	Lang                string `xml:"lang,attr,omitempty"`
+	Creationdate        string `xml:"creationdate,attr,omitempty"`
+	Creationid          string `xml:"creationid,attr,omitempty"`
+	Changedate          string `xml:"changedate,attr,omitempty"`
+	Changeid            string `xml:"changeid,attr,omitempty"`
 	Seg                 Seg    `xml:"seg"`
-	Note                []Note `xml:"note"`
-	Prop                []Prop `xml:"prop"`
-	OEncoding           string `xml:"o-encoding,attr"`
-	Datatype            string `xml:"datatype,attr"`
-	Usagecount          string `xml:"usagecount,attr"`
-	Lastusagedate       string `xml:"lastusagedate,attr"`
-	Creationtool        string `xml:"creationtool,attr"`
-	Creationtoolversion string `xml:"creationtoolversion,attr"`
-	OTmf                string `xml:"o-tmf,attr"`
+	Note                []Note `xml:"note,omitempty"`
+	Prop                []Prop `xml:"prop,omitempty"`
+	OEncoding           string `xml:"o-encoding,attr,omitempty"`
+	Datatype            string `xml:"datatype,attr,omitempty"`
+	Usagecount          string `xml:"usagecount,attr,omitempty"`
+	Lastusagedate       string `xml:"lastusagedate,attr,omitempty"`
+	Creationtool        string `xml:"creationtool,attr,omitempty"`
+	Creationtoolversion string `xml:"creationtoolversion,attr,omitempty"`
+	OTmf                string `xml:"o-tmf,attr,omitempty"`
 }
 
 // Tu represents a translation unit.  The <tu> element contains the data for a given translation unit.
 type Tu struct {
-	Text                string `xml:",chardata"`
-	Tuid                string `xml:"tuid,attr"`
-	Datatype            string `xml:"datatype,attr"`
-	Usagecount          string `xml:"usagecount,attr"`
-	Lastusagedate       string `xml:"lastusagedate,attr"`
-	Srclang             string `xml:"srclang,attr"`
-	Note                []Note `xml:"note"`
-	Prop                []Prop `xml:"prop"`
-	Tuv                 []Tuv  `xml:"tuv"`
-	OEncoding           string `xml:"o-encoding,attr"`
-	Creationtool        string `xml:"creationtool,attr"`
-	Creationtoolversion string `xml:"creationtoolversion,attr"`
-	Creationdate        string `xml:"creationdate,attr"`
-	Creationid          string `xml:"creationid,attr"`
-	Changedate          string `xml:"changedate,attr"`
-	Segtype             string `xml:"segtype,attr"`
-	Changeid            string `xml:"changeid,attr"`
-	OTmf                string `xml:"o-tmf,attr"`
+	Text                string `xml:",chardata,omitempty"`
+	Tuid                string `xml:"tuid,attr,omitempty"`
+	Datatype            string `xml:"datatype,attr,omitempty"`
+	Usagecount          string `xml:"usagecount,attr,omitempty"`
+	Lastusagedate       string `xml:"lastusagedate,attr,omitempty"`
+	Srclang             string `xml:"srclang,attr,omitempty"`
+	Note                []Note `xml:"note,omitempty"`
+	Prop                []Prop `xml:"prop,omitempty"`
+	Tuv                 []Tuv  `xml:"tuv,omitempty"`
+	OEncoding           string `xml:"o-encoding,attr,omitempty"`
+	Creationtool        string `xml:"creationtool,attr,omitempty"`
+	Creationtoolversion string `xml:"creationtoolversion,attr,omitempty"`
+	Creationdate        string `xml:"creationdate,attr,omitempty"`
+	Creationid          string `xml:"creationid,attr,omitempty"`
+	Changedate          string `xml:"changedate,attr,omitempty"`
+	Segtype             string `xml:"segtype,attr,omitempty"`
+	Changeid            string `xml:"changeid,attr,omitempty"`
+	OTmf                string `xml:"o-tmf,attr,omitempty"`
 }
 
 type Prop struct {
-	Text      string `xml:",chardata"`
-	Type      string `xml:"type,attr"`
-	OEncoding string `xml:"o-encoding,attr"`
-	Lang      string `xml:"lang,attr"`
+	Text      string `xml:",chardata,omitempty"`
+	Type      string `xml:"type,attr,omitempty"`
+	OEncoding string `xml:"o-encoding,attr,omitempty"`
+	Lang      string `xml:"lang,attr,omitempty"`
 }
 
 // Note - The <note> element. It is used for comments.
 type Note struct {
-	Text      string `xml:",chardata"`
-	Lang      string `xml:"lang,attr"`
-	OEncoding string `xml:"o-encoding,attr"`
+	Text      string `xml:",chardata,omitempty"`
+	Lang      string `xml:"lang,attr,omitempty"`
+	OEncoding string `xml:"o-encoding,attr,omitempty"`
 }
 
 // Seg represents the <seg> element. It contains the text of the given segment.
 // There is no length limitation to the content of a <seg> element.
 // All spacing and line-breaking characters are significant within a <seg> element.
 type Seg struct {
-	Text string `xml:",chardata"`
+	Text string `xml:",chardata,omitempty"`
 	// 	Bpt []Bpt
 	// 	Ept    []Ept
 	// 	It     []It
